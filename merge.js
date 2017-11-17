@@ -26,7 +26,8 @@ function iter(data){
     return this
 
 }
-const comparison = (ma,mb,sign) => (isNaN(ma.current() - mb.current()))
+const comparison = (ma,mb,sign) => 
+    (isNaN(ma.current() - mb.current()))
     ? (ma.next() || mb.next())
     : eval('(ma.current() '+ sign +'= mb.current())')
     ? (ma.next())
