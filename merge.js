@@ -1,4 +1,4 @@
-let mergeSort = (array,sign,merged = []) => {
+const mergeSort = (array,sign,merged = []) => {
     if(array.length === 1)
         return array
 
@@ -26,14 +26,14 @@ function iter(data){
     return this
 
 }
-const comparison = (ma,mb,sign) => 
-    (isNaN(ma.current() - mb.current()))
-    ? (ma.next() || mb.next())
-    : eval('(ma.current() '+ sign +'= mb.current())')
-    ? (ma.next())
-    : (mb.next())
+const comparison = (iterA,iterB,lt_or_gt) => 
+    (isNaN(iterA.current() - iterB.current()))// either ma or mb current value is undefined
+    ? (iterA.next() || iterB.next())          // push only the defined value
+    : eval('(iterA.current() '+ lt_or_gt +'= iterB.current())') // otherwise use the sign to determind which of the two is greater than/lessthan
+    ? (iterA.next()) //push a if a gt/lt b
+    : (iterB.next()) // push b if b gt/lt a
 
-let split = a => {
+const split = a => {
     const splitLen = Math.floor(a.length / 2)
     return [a.slice(0,splitLen), a.slice(splitLen, a.length)]
 }
