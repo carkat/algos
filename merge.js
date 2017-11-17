@@ -4,7 +4,7 @@ const mergeSort = (array,sign,merged = []) => {
 
     const [firstHalf, secondHalf] = split(array)
     const [mergeA, mergeB] = [new iter(mergeSort(firstHalf,sign)), new iter(mergeSort(secondHalf,sign))]
-    while(mergeA.continue()|| mergeB.continue())
+    while(mergeA.shouldContinue()|| mergeB.shouldContinue())
         merged.push(comparison(mergeA,mergeB,sign))
     return merged
 }
@@ -18,7 +18,7 @@ function iter(data){
     this.current = function(){
         return data[count]
     }
-    this.continue = function(){
+    this.shouldContinue = function(){
         return count < data.length
     }
         
