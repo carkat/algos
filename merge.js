@@ -1,12 +1,12 @@
-const mergeSort = (array,sign,merged = []) => {
+const mergeSort = (array,sign,sorted = []) => {
     if(array.length === 1)
         return array
 
     const [firstHalf, secondHalf] = split(array)
     const [mergeA, mergeB] = [new iter(mergeSort(firstHalf,sign)), new iter(mergeSort(secondHalf,sign))]
     while(mergeA.shouldContinue()|| mergeB.shouldContinue())
-        merged.push(comparison(mergeA,mergeB,sign))
-    return merged
+        sorted.push(comparison(mergeA,mergeB,sign))
+    return sorted
 }
 
 function iter(data){
