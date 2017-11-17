@@ -1,37 +1,38 @@
 const bubble = it => {
     if(it.isLastIteration()) 
-        return it.data()
-    if(it.getNext() > it.readNext()) it.swap()
+        return it.value()
+    if(it.getNext() > it.readNext()) 
+        it.swap()
     return bubble(it)
 }
 
-function bubbleIterator(a){
+function bubbleIterator(data){
     let index = -1
-    let top = a.length
+    let top = data.length
     let last = function(){
-        return a[a.length]
+        return data[data.length]
     }
     this.isLastIteration = function(){
         return top <= 0
     }
     this.swap = function(){
-        [a[index], a[index+1]] = [a[index+1], a[index]]
+        [data[index], data[index+1]] = [data[index+1], data[index]]
     }
     this.readNext = function(){
-        return a[index + 1]
+        return data[index + 1]
     }
     this.getNext = function(){
-        if(index === a.length || index >= top){
+        if(index === data.length || index >= top){
             index = -1
             top--
         }
-        return a[++index]
+        return data[++index]
     }
     this.isLast = function(){
         return this.current() === this.last
     }
-    this.data = function(){
-        return a
+    this.value = function(){
+        return data
     }
     return this
 }
