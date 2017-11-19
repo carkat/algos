@@ -1,10 +1,11 @@
 const test = (str,stack = [], unMatchedClosingBracket = false) =>{
     const open = '({[', close = ')}]'
+    const matchingBrace = (x) => close.indexOf(x) === open.indexOf(stack.slice(-1))
     const evaluateEachCharacter = str.split('').forEach(x => open.includes(x) 
             ? stack.push(x) 
-            : close.includes(x) && (close.indexOf(x) === open.indexOf(stack.slice(-1))) 
+            : close.includes(x) && matchingBrace(x)
             ? stack.pop()
-            : unMatchedClosingBracket = true) 
+            : unMatchedClosingBracket = true)
     return  !unMatchedClosingBracket && stack.length === 0
 }
 //one liner for the lulz
