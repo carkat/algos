@@ -1,4 +1,5 @@
-//for legibility
+//one liner for the lulz
+// const mergeSort = (array,sign,sorted = []) => array.length === 1 ? array: (([left, right]) => new mergeSortIterator(mergeSort(left,sign)).merge(new mergeSortIterator(mergeSort(right,sign)), sign))(split(array))
 const mergeSort = (array,sign, sorted=[]) =>{
     if(array.length === 1) 
         return array
@@ -9,8 +10,6 @@ const mergeSort = (array,sign, sorted=[]) =>{
     ]
     return sortedLeft.merge(sortedRight,sign)
 }
-//one liner for the lulz
-// const mergeSort = (array,sign,sorted = []) => array.length === 1 ? array: (([left, right]) => new mergeSortIterator(mergeSort(left,sign)).merge(new mergeSortIterator(mergeSort(right,sign)), sign))(split(array))
 
 function mergeSortIterator(data){
     let count = 0

@@ -1,3 +1,5 @@
+//one liner for the lulz
+// const bubble = it => it.isLastIteration() ? it.value() : it.getNext() > it.readNext() ? bubble(it.swap()) : bubble(it)
 const bubble = it => {
     if(it.isLastIteration()) 
         return it.value()
@@ -17,6 +19,7 @@ function bubbleIterator(data){
     }
     this.swap = function(){
         [data[index], data[index+1]] = [data[index+1], data[index]]
+        return this
     }
     this.readNext = function(){
         return data[index + 1]
@@ -39,5 +42,3 @@ function bubbleIterator(data){
 
 const test = bubbleIterator([3,2,7,5,8,9,0,1,3,52,3254,36,5626])
 console.log(bubble(test))
-
-// console.log(bubble([3,2,7,5,8,9,0,1,3,52,3254,36,5626],0))
